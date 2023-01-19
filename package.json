@@ -2,7 +2,7 @@
   "name": "twitter-bot-gpt",
   "version": "1.0.0",
   "description": "a simple bot that responds with AI",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "start": "ts-node src/index.ts",
     "start:dev": "nodemon src/index.ts",
@@ -19,8 +19,13 @@
   },
   "homepage": "https://github.com/nirodriguezsa/twitter-bot-gpt#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
+    "twitter-api-v2": "^1.14.0",
     "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18"
   }
 }

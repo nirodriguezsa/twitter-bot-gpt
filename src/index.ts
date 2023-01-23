@@ -3,8 +3,9 @@ import { devClient } from "./clients/dev.client";
 import { userClient } from "./clients/user.client";
 import { ETwitterStreamEvent } from "twitter-api-v2";
 import { welcome } from "../welcome";
-import { createStreamRules, getAllRules } from "./services/service";
+import { createStreamRules, deleteAllRules, getAllRules } from "./services/twitter.service";
 import { likeAndReply } from "./actions/actions";
+import { Constants } from "./constants/constants";
 
 dotenv.config();
 welcome();
@@ -13,7 +14,7 @@ async function main(): Promise<void> {
   const user = await userClient.v2.me();
   const userId = user.data.id;
 
-  await createStreamRules(["#NicoExcuseme"]);
+  await createStreamRules([Constants.rule]);
   console.log(await getAllRules());
 
   const stream = await devClient.v2.searchStream({

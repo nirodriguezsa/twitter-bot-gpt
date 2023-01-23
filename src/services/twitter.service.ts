@@ -2,6 +2,7 @@ import { devClient } from "../clients/dev.client";
 
 export async function getAllRules() {
   const rules = await devClient.v2.streamRules();
+
   return rules.data;
 }
 
@@ -27,4 +28,6 @@ export async function deleteAllRules() {
   await devClient.v2.updateStreamRules({
     delete: { ids: rules.data.map((rule) => rule.id) },
   });
+
+  console.log("All rules were deleted");
 }
